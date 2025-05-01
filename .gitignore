@@ -8,3 +8,4 @@
 *.c.save
 *.cbp.save
 *.layout.save
+**/.vscode/
