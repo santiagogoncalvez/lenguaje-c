@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1745506650 source:c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\proyectos\tda-palabra\normalizar\normalizar\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../TDA-palabra/secuencia-palabras.h"
+
+1745504498 c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\proyectos\tda-palabra\tda-palabra\secuencia-palabras.h
+	<stdbool.h>
+	"TDA-palabra.h"
+
+1745504343 c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\proyectos\tda-palabra\tda-palabra\tda-palabra.h
+	<stdbool.h>
+	<stdio.h>
+

@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1744319192 source:c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\prácticas\clase-1\tda-fechas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fechas.h"
+
+1744318132 c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\prácticas\clase-1\tda-fechas\fechas.h
+	<stdio.h>
+	<stdbool.h>
+
+1744319168 source:c:\users\music\documents\universidad\primer-cuatrimiestre-2025\topicos-de-programacion\prácticas\clase-1\tda-fechas\fechas.c
+	"fechas.h"
+
