@@ -4,6 +4,7 @@
 *.layout
 *.autosave
 *.exe
+*.save
 *.h.save
 *.c.save
 *.cbp.save
