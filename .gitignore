@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+*.depend
+*.layout
+*.autosave
+*.exe
+*.h.save
+*.c.save
+*.cbp.save
+*.layout.save

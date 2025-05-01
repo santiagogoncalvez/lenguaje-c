@@ -1,0 +1,6 @@
+- Ir a la carpeta donde se encuentra el archivo de Codeblocks
+- Buscar el ejecutable "cb_share_config.exe" y ejecutarlo
+- Seleccionar como archivo fuente el archivo de configuracion de temas
+- seleccionar como destino el archivo de configuraciones defoult (activar la opcion en el explorador para ver las carpetas ocultas". ruta: C:\Users\music\AppData\Roaming\CodeBlocks\default.conf 
+- Darle a la opcion "Transfer" y despues a save.
+- Si no funciona el buildeo cuando se quiere ejecutar el archivo, ir a settings, compiler, y en la parte de compiler darle a "reset defoults"
