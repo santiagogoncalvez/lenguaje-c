@@ -1,18 +1,23 @@
-#ifndef TDA_PALABRA_H_INCLUDED
-#define TDA_PALABRA_H_INCLUDED
+#ifndef TDAPALABRA_H
+#define TDAPALABRA_H
 
 #include <stdbool.h>
-#include <stdio.h>
+
 
 #define TAM_PAL 51
+
 
 typedef struct
 {
     char vPal[TAM_PAL];
-} Palabra;
+}
+Palabra;
 
 
+void palabraATitulo(Palabra* pal);
 void palabraMostrar(const Palabra* pal);
+
 bool esLetra(char c);
 
-#endif // TDA-PALABRA_H_INCLUDED
+
+#endif // TDAPALABRA_H

@@ -1,6 +1,5 @@
 #include "vector.h"
 
-
 void vectorCrear(tVector *v)
 {
     v->ce = 0;
@@ -21,7 +20,7 @@ bool vectorVacio(const tVector *v)
     return v->ce == 0;
 }
 
-bool vectorInsertarEnOrden(tVector *v, int elemento)
+int vectorInsertarEnOrden(tVector *v, int elemento)
 {
     if(v->ce == TAM)
     {
@@ -44,7 +43,7 @@ bool vectorInsertarEnOrden(tVector *v, int elemento)
     int *posIns = i;
     for (i = ult; i >= posIns; i--)
     {
-        // Este es la expresión con aritmética de punteros para intercambiar valores de posiciones. Similar a: vector[i + 1] = vector[i];
+        // Este es la expresion con aritmetica de punteros para intercambiar valores de posiciones. Similar a: vector[i + 1] = vector[i];
         *(i + 1) = *i;
     }
 
@@ -55,19 +54,56 @@ bool vectorInsertarEnOrden(tVector *v, int elemento)
     return TODO_OK;
 }
 
-bool vectorInsertarAlInicio(tVector *v, int elemento)
+int vectorInsertarAlInicio(tVector *v, int elemento)
 {
-    return true;
+    if(v->ce == TAM) return LLENO;
+
+    int *i;
+    for (i = v->vector + v->ce - 1; i >= v->vector; i--) {
+        *(i + 1) = *i;
+    }
+
+    // Agregar elemento en la primera posición.
+    *v->vector = elemento;
+
+    // Aumentar en 1 el tamaño del vector.
+    v->ce++;
+
+    return TODO_OK;
 };
 
-bool vectorInsertarAlFinal(tVector *v, int elemento)
+int vectorInsertarAlFinal(tVector *v, int elemento)
 {
-    return true;
+    if(v->ce == TAM) return LLENO;
+
+    // Agregar elemento al final
+    *(v->vector + v->ce) = elemento;
+
+    // Aumentar en 1 el tamaño del vector.
+    v->ce++;
+
+    return TODO_OK;
 };
 
-bool vectorInsertarEnPos(tVector *v, int elemento, int pos)
+int vectorInsertarEnPos(tVector *v, int elemento, int pos)
 {
-    return true;
+    if(pos < 0 || pos >= v->ce)
+    {
+        return false;
+    }
+
+    if(v->ce == TAM) return LLENO;
+
+    int *i;
+    int *pPos = v->vector + pos;
+    for (i = v->vector + v->ce - 1; i >= pPos; i--) {
+        *(i + 1) = *i;
+    }
+
+    *pPos = elemento;
+    v->ce++;
+
+    return TODO_OK;
 };
 
 int vectorOrdBuscar(const tVector *v, int elemento)
@@ -77,7 +113,6 @@ int vectorOrdBuscar(const tVector *v, int elemento)
     const int *ls = v->vector + v->ce - 1;
     const int *m;
 
-    //? Modificar para funcionar con aritmética de punteros
     while(pos == -1 && li <= ls)
     {
         // "m" guarda un valor de memoria, no un número. Entonces estoy calculando el medio y el resultado va a ser directamente la dirección de memoria, no un número.
@@ -105,7 +140,16 @@ int vectorOrdBuscar(const tVector *v, int elemento)
 
 int vectorDesordBuscar(const tVector *v, int elemento)
 {
-    return 0;
+    int pos = -1;
+
+    const int *i;
+    for (i = v->vector; i <= v->vector + v->ce - 1; i++) {
+        if(*i == elemento) {
+            pos = i - v->vector;
+        }
+    }
+
+    return pos;
 }
 
 void vectorDestruir(tVector *v)
@@ -158,5 +202,24 @@ void vectorMostrar(const tVector *v)
 
 void vectorOrdenar(tVector *v)
 {
+    // Todos debn ser auxiliares
+    int *i, *desordenado, aux, *limite = v->vector + v->ce - 1;
 
+    do
+    {
+        desordenado = NULL;
+        for(i = v->vector; i < limite; i++)
+        {
+            if(*i > *(i + 1))
+            {
+                aux = *i;
+                *i = *(i + 1);
+                *(i + 1) = aux;
+                desordenado = i;
+            }
+        }
+
+        limite = desordenado;
+    }
+    while (desordenado);
 };

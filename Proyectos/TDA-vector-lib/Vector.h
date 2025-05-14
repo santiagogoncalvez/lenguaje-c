@@ -19,16 +19,17 @@ typedef struct
 } tVector;
 
 
+// Cuando se modifica el tamaño del vector hay quemodificar la propiedad 'v->ce'.
 void vectorCrear(tVector *v);
 bool vectorLleno (const tVector *v);
 int vectorCantElementos(const tVector *v);
 bool vectorVacio(const tVector *v);
-bool vectorInsertarEnOrden(tVector *v, int elemento);
-bool vectorInsertarAlInicio(tVector *, int elemento);
-bool vectorInsertarAlFinal(tVector *, int elemento);
-bool vectorInsertarEnPos(tVector *, int elemento, int pos);
-int vectorOrdBuscar(const tVector *, int elemento);
-int vectorDesordBuscar(const tVector *, int elemento);
+int vectorInsertarEnOrden(tVector *v, int elemento);
+int vectorInsertarAlInicio(tVector *v, int elemento);
+int vectorInsertarAlFinal(tVector *v, int elemento);
+int vectorInsertarEnPos(tVector *v, int elemento, int pos);
+int vectorOrdBuscar(const tVector *v, int elemento);
+int vectorDesordBuscar(const tVector *v, int elemento);
 void vectorDestruir(tVector *v);
 bool vectorOrdEliminar(tVector *v, int elemento);
 bool vectorEliminarDePos(tVector *v, int pos);

@@ -1,30 +1,27 @@
-#include "secuencia-palabras.h"
+#include "SecuenciaPalabras.h"
 
 
 void secuenciaPalabrasCrear(SecuenciaPalabras* sec, const char* cad)
 {
     sec->cur = (char*)cad;
     sec->finSec = false;
-};
+}
+
 
 bool secuenciaPalabrasLeer(SecuenciaPalabras* sec, Palabra* pal)
 {
-    //*sec->cur: mientras haya un caracter, el caracter '\0' es 0 entonces es falso.
-    while(*sec->cur && !esLetra(*sec->cur))
+    while(*sec->cur && !esLetra(*sec->cur)) // *sec->cur != '\0'
     {
         sec->cur++;
     }
 
-    //No había letras
-    if(!*sec->cur)  //*sec->cur == '\0'
+    if(!*sec->cur) //*sec->cur == '\0'
     {
         sec->finSec = true;
         return false;
     }
 
-    //Hay letras
     char* iPal = pal->vPal;
-
     do
     {
         *iPal = *sec->cur;
@@ -33,34 +30,38 @@ bool secuenciaPalabrasLeer(SecuenciaPalabras* sec, Palabra* pal)
     }
     while(*sec->cur && esLetra(*sec->cur));
 
-    //Si se sale es que encontró un caracter de fin de palabra '\0'
     *iPal = '\0';
 
     return true;
-};
+}
+
 
 bool secuenciaPalabrasFin(const SecuenciaPalabras* sec)
 {
     return sec->finSec;
-};
+}
 
 
+void secuenciaPalabrasEscribir(SecuenciaPalabras* sec, const Palabra* pal)
+{
+    const char* iPal = pal->vPal;
+    while(*iPal)
+    {
+        *sec->cur = *iPal;
+        iPal++;
+        sec->cur++;
+    }
+}
 
 
+void secuenciaPalabrasEscribirCaracter(SecuenciaPalabras* sec, char c)
+{
+    *sec->cur = c;
+    sec->cur++;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void secuenciaPalabrasCerrar(SecuenciaPalabras* sec)
+{
+    *sec->cur = '\0';
+}
